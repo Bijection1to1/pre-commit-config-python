@@ -1,0 +1,56 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+    -   id: trailing-whitespace
+        args:
+        -   --markdown-linebreak-ext=md
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+-   repo: https://github.com/PyCQA/isort
+    rev: 5.10.1
+    hooks:
+    -   id: isort 
+        args:
+        -   --profile=black
+        -   --line-length=100
+-   repo: https://github.com/psf/black
+    rev: 22.1.0
+    hooks:
+    -   id: black
+        args:
+        -   --line-length=100
+-   repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v0.931
+    hooks:
+    -   id: mypy
+        args:
+        -   --ignore-missing-imports
+        -   --strict
+-   repo: https://github.com/pycqa/pylint
+    rev: v2.12.2
+    hooks:
+    -   id: pylint
+        args:
+        -   --max-line-length=100
+        -   --errors-only
+        -   --disable=import-error,no-name-in-module
+-   repo: https://github.com/nbQA-dev/nbQA
+    rev: 1.2.3
+    hooks:
+    -   id: nbqa-isort
+        args: 
+        -   --profile=black
+        -   --line-length=100
+    -   id: nbqa-black
+        args:
+        -   --line-length=100
+    -   id: nbqa-mypy
+        args:
+        -   --ignore-missing-imports
+        -   --strict
+    -   id: nbqa-pylint
+        args:
+        -   --max-line-length=100
+        -   --errors-only
+        -   --disable=import-error,no-name-in-module
